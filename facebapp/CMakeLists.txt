@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 3.0.0)
+project(faceb VERSION 0.1.0)
+
+if(WIN32)
+    add_subdirectory(cmake/windows)
+elseif(APPLE)
+    add_subdirectory(cmake/darwin)
+elseif(UNIX AND NOT APPLE)
+    add_subdirectory(cmake/linux)
+else()
+    message(FATAL_ERROR "Operating System Not Supported.")
+endif()
